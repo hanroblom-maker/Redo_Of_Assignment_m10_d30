@@ -17,9 +17,9 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
-        Movement();
+        Move();
     }
-    void Movement() // Movement Controller
+    void Move() // Movement Controller
     {
         if (!canMove)
         {
@@ -69,7 +69,10 @@ public class PlayerController : MonoBehaviour
         CameraFollow();
     }
 
-    // Sourced from: "Controlling Unity Camera Behavior - 2019.3", Unity Learn (https://learn.unity.com/tutorial/controlling-unity-camera-behaviour-2019-3), adapted by Hanro / Johannes
+    // Sourced from: Unity Learn, "Controlling Unity Camera Behavior - 2019.3"
+    //(https://learn.unity.com/tutorial/controlling-unity-camera-behaviour-2019-3), 
+    //Adapted by Hanro / Johannes
+
     private void CameraFollow()
     {
         Camera.main.transform.position =
@@ -78,6 +81,7 @@ public class PlayerController : MonoBehaviour
                 transform.position.y,
                 -10f);
     }
+
     //Original Code 
 
     //Camera.main.transform.position =

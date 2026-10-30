@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject WinConditionText;
     public GameObject LoseConditionText;
-    public void AddScore()
+    public int AddScore()
     {
         score++;
 
@@ -23,7 +23,9 @@ public class GameManager : MonoBehaviour
 
         CheckWinCondition();
 
+        return score;
     }
+    
     public void RemoveHealth()
     {
         health--;
@@ -36,25 +38,25 @@ public class GameManager : MonoBehaviour
     }
     private void CheckWinCondition()
     {
-        if (score >= 5)
+        if (score == 5)
         {
             Debug.Log("Win condition reached");
 
             WinConditionText.SetActive(true);
 
-            FindObjectOfType<PlayerController>().StopMovement();
+            FindFirstObjectByType<PlayerController>().StopMovement();
         }
     }
 
     private void CheckLoseCondition()
     {
-        if (health <= 0)
+        if (health == 0)
         {
             Debug.Log("Game Over");
 
             LoseConditionText.SetActive(true);
 
-            FindObjectOfType<PlayerController>().StopMovement();
+            FindFirstObjectByType<PlayerController>().StopMovement();
         }
     }
 
